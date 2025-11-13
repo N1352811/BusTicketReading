@@ -2,20 +2,17 @@ import csv
 
 filename = "mobile_products.csv"
 headers= []
-rows = []
+datalist = []
 
-with open(filename, 'r') as csvfile:
-    csvreader = csv.reader(csvfile)
-    headers = next(csvreader)
+with open(filename, mode= 'r') as csvfile:
+    csv_reader = csv.DictReader(csvfile)
+    for row in csv_reader:
+        datalist.append(row)
 
-    for row in csvreader:
-        rows.append(row)
 
-print("Header names are :")
-for header in headers:
-    print(header)
+print(datalist[0])
 
-print("Row contents")
-for i in range(10):
+for row in datalist:
+    print(row["topup_title"],row["topup_price_in_pence"])
     
 
