@@ -15,4 +15,11 @@ print(datalist[0])
 for row in datalist:
     print(row["topup_title"],row["topup_price_in_pence"])
     
+#get all academic year tickets
+academicYearTickets = []
+for row in datalist:
+    if row["topup_entitlement_type"] == "fixed_date":
+        academicYearTickets.append(row)
 
+for row in academicYearTickets:
+    print(row["topup_title"])
